@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机点名</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn:hover {
+            background-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .history-item {
+            background: #f7fafc;
+            border-left: 4px solid #cbd5e0;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <div class="card">
+            <h1 class="text-4xl font-bold mb-6 text-gray-800">随机点名</h1>
+
+            <!-- Add Preset List Selector -->
+            <div class="mb-6">
+                <label for="presetList" class="block text-lg mb-2 text-gray-700">Preset Lists:</label>
+                <select id="presetList" class="border border-gray-300 p-3 rounded-md w-full">
+                    <option value="">选择预设名单</option>
+                    <option value="王思远 黎雳 李皓然 宋佳阳 陈柏宇 陈梓昱">327宿舍</option>
+                    <!-- <option value="Apple,Orange,Banana">Fruits</option> -->
+                    <!-- <option value="Math,Science,History">Subjects</option> -->
+                    <!-- Add more preset lists here -->
+                </select>
+            </div>
+
+            <div class="mb-6">
+                <label for="names" class="block text-lg mb-2 text-gray-700">输入名字（用分隔符隔开）：</label>
+                <textarea id="names" rows="5" class="w-full border border-gray-300 p-3 rounded-md"></textarea>
+            </div>
+
+            <div class="mb-6">
+                <label for="delimiter" class="block text-lg mb-2 text-gray-700">分隔符：</label>
+                <select id="delimiter" class="border border-gray-300 p-3 rounded-md w-full">
+                    <option value=",">逗号（,）</option>
+                    <option value=" ">空格（ ）</option>
+                    <option value=";">分号（;）</option>
+                    <option value="\n">换行符</option>
+                </select>
+            </div>
+
+            <!-- Add Seed Input -->
+            <div class="mb-6">
+                <label for="seed" class="block text-lg mb-2 text-gray-700">种子（可选）：</label>
+                <input type="number" id="seed" class="w-full border border-gray-300 p-3 rounded-md"
+                    placeholder="输入一个种子数字">
+            </div>
+
+            <button id="rollCallButton"
+                class="bg-blue-500 text-white font-bold py-3 px-6 rounded hover:bg-blue-600 transition duration-300 ease-in-out btn">Start
+                Roll Call</button>
+
+            <div id="result" class="mt-6 text-3xl font-bold text-gray-800"></div>
+        </div>
+
+        <div id="history" class="card">
+            <h3 class="text-xl font-medium mb-4 text-gray-800">历史记录</h3>
+            <ul id="historyList" class="list-none p-0 max-h-64 overflow-y-auto">
+                <!-- History items will be here -->
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
